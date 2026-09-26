@@ -1,0 +1,14 @@
+{
+  "app": { "name": "MedTrack", "tagline": "Gestion quotidienne des médicaments", "adherence": "{{rate}}% observance" },
+  "nav": { "today": "Aujourd'hui", "medications": "Médicaments", "history": "Historique", "stats": "Statistiques", "notes": "Notes" },
+  "dashboard": { "title": "Médicaments du jour", "noMeds": "Aucun médicament ajouté", "allDone": "Tous les médicaments pris ! 🎉", "upcoming": "À venir", "taken": "Pris", "skipped": "Ignoré", "missed": "Manqué" },
+  "medications": { "title": "Mes médicaments", "add": "Ajouter un médicament", "edit": "Modifier", "delete": "Supprimer", "name": "Nom du médicament", "dosage": "Dosage", "times": "Horaires", "addTime": "Ajouter un horaire", "color": "Couleur", "notes": "Notes", "save": "Enregistrer", "cancel": "Annuler", "confirmDelete": "Voulez-vous vraiment supprimer ce médicament ?", "active": "Actif", "inactive": "Inactif" },
+  "history": { "title": "Historique", "noLogs": "Aucun enregistrement pour cette date", "date": "Date" },
+  "stats": { "title": "Statistiques", "adherenceRate": "Taux d'observance", "totalTaken": "Total pris", "totalSkipped": "Total ignoré", "streak": "Série quotidienne", "days": "jours", "weekly": "Hebdomadaire", "monthly": "Mensuel", "byMedication": "Par médicament" },
+  "notes": { "title": "Notes de santé", "add": "Ajouter une note", "placeholder": "Écrivez votre note du jour...", "noNotes": "Aucune note", "delete": "Supprimer" },
+  "profile": { "title": "Profils", "add": "Ajouter un profil", "switch": "Changer de profil", "name": "Nom du profil", "select": "Sélectionner" },
+  "settings": { "title": "Paramètres", "language": "Langue", "theme": "Thème", "themeLight": "Clair", "themeDark": "Sombre", "themeSystem": "Système", "notifications": "Notifications", "notificationsDesc": "Rappels aux heures des médicaments", "about": "À propos" },
+  "actions": { "take": "Prendre", "skip": "Ignorer", "undo": "Annuler" },
+  "time": { "today": "Aujourd'hui", "yesterday": "Hier", "daysAgo": "il y a {{count}} jours" },
+  "common": { "yes": "Oui", "no": "Non", "ok": "OK", "close": "Fermer", "loading": "Chargement...", "error": "Erreur", "success": "Succès" }
+}

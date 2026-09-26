@@ -1,0 +1,14 @@
+{
+  "app": { "name": "MedTrack", "tagline": "Gestión diaria de medicamentos", "adherence": "{{rate}}% adherencia" },
+  "nav": { "today": "Hoy", "medications": "Medicamentos", "history": "Historial", "stats": "Estadísticas", "notes": "Notas" },
+  "dashboard": { "title": "Medicamentos de hoy", "noMeds": "No hay medicamentos añadidos", "allDone": "¡Todos los medicamentos tomados! 🎉", "upcoming": "Próximo", "taken": "Tomado", "skipped": "Omitido", "missed": "Perdido" },
+  "medications": { "title": "Mis medicamentos", "add": "Añadir medicamento", "edit": "Editar", "delete": "Eliminar", "name": "Nombre del medicamento", "dosage": "Dosis", "times": "Horarios", "addTime": "Añadir horario", "color": "Color", "notes": "Notas", "save": "Guardar", "cancel": "Cancelar", "confirmDelete": "¿Está seguro de que desea eliminar este medicamento?", "active": "Activo", "inactive": "Inactivo" },
+  "history": { "title": "Historial", "noLogs": "No hay registros para esta fecha", "date": "Fecha" },
+  "stats": { "title": "Estadísticas", "adherenceRate": "Tasa de adherencia", "totalTaken": "Total tomados", "totalSkipped": "Total omitidos", "streak": "Racha diaria", "days": "días", "weekly": "Semanal", "monthly": "Mensual", "byMedication": "Por medicamento" },
+  "notes": { "title": "Notas de salud", "add": "Añadir nota", "placeholder": "Escribe tu nota de hoy...", "noNotes": "Sin notas", "delete": "Eliminar" },
+  "profile": { "title": "Perfiles", "add": "Añadir perfil", "switch": "Cambiar perfil", "name": "Nombre del perfil", "select": "Seleccionar" },
+  "settings": { "title": "Configuración", "language": "Idioma", "theme": "Tema", "themeLight": "Claro", "themeDark": "Oscuro", "themeSystem": "Sistema", "notifications": "Notificaciones", "notificationsDesc": "Recordatorios en horarios de medicamentos", "about": "Acerca de" },
+  "actions": { "take": "Tomar", "skip": "Omitir", "undo": "Deshacer" },
+  "time": { "today": "Hoy", "yesterday": "Ayer", "daysAgo": "hace {{count}} días" },
+  "common": { "yes": "Sí", "no": "No", "ok": "Aceptar", "close": "Cerrar", "loading": "Cargando...", "error": "Error", "success": "Éxito" }
+}

@@ -1,0 +1,14 @@
+{
+  "app": { "name": "用药追踪", "tagline": "每日用药管理", "adherence": "依从率 {{rate}}%" },
+  "nav": { "today": "今天", "medications": "药物", "history": "历史", "stats": "统计", "notes": "笔记" },
+  "dashboard": { "title": "今日药物", "noMeds": "尚未添加药物", "allDone": "所有药物已服用！🎉", "upcoming": "即将", "taken": "已服用", "skipped": "已跳过", "missed": "已错过" },
+  "medications": { "title": "我的药物", "add": "添加药物", "edit": "编辑药物", "delete": "删除", "name": "药物名称", "dosage": "剂量", "times": "时间", "addTime": "添加时间", "color": "颜色", "notes": "备注", "save": "保存", "cancel": "取消", "confirmDelete": "确定要删除此药物吗？", "active": "活跃", "inactive": "非活跃" },
+  "history": { "title": "历史", "noLogs": "此日期无记录", "date": "日期" },
+  "stats": { "title": "统计", "adherenceRate": "依从率", "totalTaken": "总服用次数", "totalSkipped": "总跳过次数", "streak": "连续天数", "days": "天", "weekly": "每周", "monthly": "每月", "byMedication": "按药物" },
+  "notes": { "title": "健康笔记", "add": "添加笔记", "placeholder": "写下今天的笔记...", "noNotes": "暂无笔记", "delete": "删除" },
+  "profile": { "title": "档案", "add": "添加档案", "switch": "切换档案", "name": "档案名称", "select": "选择" },
+  "settings": { "title": "设置", "language": "语言", "theme": "主题", "themeLight": "浅色", "themeDark": "深色", "themeSystem": "系统", "notifications": "通知", "notificationsDesc": "用药时间提醒", "about": "关于" },
+  "actions": { "take": "服用", "skip": "跳过", "undo": "撤销" },
+  "time": { "today": "今天", "yesterday": "昨天", "daysAgo": "{{count}} 天前" },
+  "common": { "yes": "是", "no": "否", "ok": "确定", "close": "关闭", "loading": "加载中...", "error": "错误", "success": "成功" }
+}

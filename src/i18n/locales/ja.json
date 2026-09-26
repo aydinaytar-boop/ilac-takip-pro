@@ -1,0 +1,14 @@
+{
+  "app": { "name": "服薬管理", "tagline": "毎日の服薬管理", "adherence": "服薬率 {{rate}}%" },
+  "nav": { "today": "今日", "medications": "薬", "history": "履歴", "stats": "統計", "notes": "メモ" },
+  "dashboard": { "title": "今日の薬", "noMeds": "薬がまだ追加されていません", "allDone": "すべての薬を服用しました！🎉", "upcoming": "次回", "taken": "服用済み", "skipped": "スキップ", "missed": "未服用" },
+  "medications": { "title": "マイ薬リスト", "add": "薬を追加", "edit": "薬を編集", "delete": "削除", "name": "薬の名前", "dosage": "用量", "times": "時間", "addTime": "時間を追加", "color": "色", "notes": "メモ", "save": "保存", "cancel": "キャンセル", "confirmDelete": "この薬を削除してもよいですか？", "active": "有効", "inactive": "無効" },
+  "history": { "title": "履歴", "noLogs": "この日付の記録がありません", "date": "日付" },
+  "stats": { "title": "統計", "adherenceRate": "服薬率", "totalTaken": "合計服用", "totalSkipped": "合計スキップ", "streak": "連続日数", "days": "日", "weekly": "週間", "monthly": "月間", "byMedication": "薬別" },
+  "notes": { "title": "健康メモ", "add": "メモを追加", "placeholder": "今日のメモを書いてください...", "noNotes": "メモがありません", "delete": "削除" },
+  "profile": { "title": "プロフィール", "add": "プロフィールを追加", "switch": "プロフィールを切り替え", "name": "プロフィール名", "select": "選択" },
+  "settings": { "title": "設定", "language": "言語", "theme": "テーマ", "themeLight": "ライト", "themeDark": "ダーク", "themeSystem": "システム", "notifications": "通知", "notificationsDesc": "服薬時間のリマインダー", "about": "アプリについて" },
+  "actions": { "take": "服用", "skip": "スキップ", "undo": "元に戻す" },
+  "time": { "today": "今日", "yesterday": "昨日", "daysAgo": "{{count}} 日前" },
+  "common": { "yes": "はい", "no": "いいえ", "ok": "OK", "close": "閉じる", "loading": "読み込み中...", "error": "エラー", "success": "成功" }
+}

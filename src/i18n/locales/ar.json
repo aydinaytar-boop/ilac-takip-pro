@@ -1,0 +1,100 @@
+{
+  "app": {
+    "name": "تتبع الدواء",
+    "tagline": "إدارة الأدوية اليومية",
+    "adherence": "الالتزام {{rate}}٪"
+  },
+  "nav": {
+    "today": "اليوم",
+    "medications": "الأدوية",
+    "history": "السجل",
+    "stats": "الإحصائيات",
+    "notes": "الملاحظات"
+  },
+  "dashboard": {
+    "title": "أدوية اليوم",
+    "noMeds": "لم تتم إضافة أدوية بعد",
+    "allDone": "تم تناول جميع الأدوية! 🎉",
+    "upcoming": "قادم",
+    "taken": "تم تناوله",
+    "skipped": "تم تخطيه",
+    "missed": "فائت"
+  },
+  "medications": {
+    "title": "أدويتي",
+    "add": "إضافة دواء",
+    "edit": "تعديل الدواء",
+    "delete": "حذف",
+    "name": "اسم الدواء",
+    "dosage": "الجرعة",
+    "times": "الأوقات",
+    "addTime": "إضافة وقت",
+    "color": "اللون",
+    "notes": "ملاحظات",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "confirmDelete": "هل أنت متأكد من حذف هذا الدواء؟",
+    "active": "نشط",
+    "inactive": "غير نشط"
+  },
+  "history": {
+    "title": "السجل",
+    "noLogs": "لا توجد سجلات لهذا التاريخ",
+    "date": "التاريخ"
+  },
+  "stats": {
+    "title": "الإحصائيات",
+    "adherenceRate": "معدل الالتزام",
+    "totalTaken": "إجمالي المتناول",
+    "totalSkipped": "إجمالي المتخطى",
+    "streak": "السلسلة اليومية",
+    "days": "أيام",
+    "weekly": "أسبوعي",
+    "monthly": "شهري",
+    "byMedication": "حسب الدواء"
+  },
+  "notes": {
+    "title": "ملاحظات صحية",
+    "add": "إضافة ملاحظة",
+    "placeholder": "اكتب ملاحظتك لليوم...",
+    "noNotes": "لا توجد ملاحظات بعد",
+    "delete": "حذف الملاحظة"
+  },
+  "profile": {
+    "title": "الملفات الشخصية",
+    "add": "إضافة ملف شخصي",
+    "switch": "تغيير الملف الشخصي",
+    "name": "اسم الملف الشخصي",
+    "select": "اختيار"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "language": "اللغة",
+    "theme": "المظهر",
+    "themeLight": "فاتح",
+    "themeDark": "داكن",
+    "themeSystem": "النظام",
+    "notifications": "الإشعارات",
+    "notificationsDesc": "تذكير في أوقات الأدوية",
+    "about": "حول"
+  },
+  "actions": {
+    "take": "تناول",
+    "skip": "تخطي",
+    "undo": "تراجع"
+  },
+  "time": {
+    "today": "اليوم",
+    "yesterday": "أمس",
+    "daysAgo": "منذ {{count}} أيام"
+  },
+  "common": {
+    "yes": "نعم",
+    "no": "لا",
+    "ok": "حسناً",
+    "close": "إغلاق",
+    "loading": "جارٍ التحميل...",
+    "error": "خطأ",
+    "success": "نجاح"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "app": {
+    "name": "MedTrack",
+    "tagline": "Tägliche Medikamentenverwaltung",
+    "adherence": "{{rate}}% Einhaltung"
+  },
+  "nav": {
+    "today": "Heute",
+    "medications": "Medikamente",
+    "history": "Verlauf",
+    "stats": "Statistik",
+    "notes": "Notizen"
+  },
+  "dashboard": {
+    "title": "Heutige Medikamente",
+    "noMeds": "Noch keine Medikamente hinzugefügt",
+    "allDone": "Alle Medikamente eingenommen! 🎉",
+    "upcoming": "Bevorstehend",
+    "taken": "Eingenommen",
+    "skipped": "Übersprungen",
+    "missed": "Verpasst"
+  },
+  "medications": {
+    "title": "Meine Medikamente",
+    "add": "Medikament hinzufügen",
+    "edit": "Medikament bearbeiten",
+    "delete": "Löschen",
+    "name": "Medikamentenname",
+    "dosage": "Dosierung",
+    "times": "Zeiten",
+    "addTime": "Zeit hinzufügen",
+    "color": "Farbe",
+    "notes": "Notizen",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "confirmDelete": "Möchten Sie dieses Medikament wirklich löschen?",
+    "active": "Aktiv",
+    "inactive": "Inaktiv"
+  },
+  "history": {
+    "title": "Verlauf",
+    "noLogs": "Keine Einträge für dieses Datum",
+    "date": "Datum"
+  },
+  "stats": {
+    "title": "Statistiken",
+    "adherenceRate": "Einhaltungsrate",
+    "totalTaken": "Gesamt eingenommen",
+    "totalSkipped": "Gesamt übersprungen",
+    "streak": "Tägliche Serie",
+    "days": "Tage",
+    "weekly": "Wöchentlich",
+    "monthly": "Monatlich",
+    "byMedication": "Nach Medikament"
+  },
+  "notes": {
+    "title": "Gesundheitsnotizen",
+    "add": "Notiz hinzufügen",
+    "placeholder": "Schreiben Sie Ihre Notiz für heute...",
+    "noNotes": "Noch keine Notizen",
+    "delete": "Notiz löschen"
+  },
+  "profile": {
+    "title": "Profile",
+    "add": "Profil hinzufügen",
+    "switch": "Profil wechseln",
+    "name": "Profilname",
+    "select": "Auswählen"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "language": "Sprache",
+    "theme": "Thema",
+    "themeLight": "Hell",
+    "themeDark": "Dunkel",
+    "themeSystem": "System",
+    "notifications": "Benachrichtigungen",
+    "notificationsDesc": "Erinnerungen zu Medikamentenzeiten",
+    "about": "Über"
+  },
+  "actions": {
+    "take": "Nehmen",
+    "skip": "Überspringen",
+    "undo": "Rückgängig"
+  },
+  "time": {
+    "today": "Heute",
+    "yesterday": "Gestern",
+    "daysAgo": "vor {{count}} Tagen"
+  },
+  "common": {
+    "yes": "Ja",
+    "no": "Nein",
+    "ok": "OK",
+    "close": "Schließen",
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolg"
+  }
+}

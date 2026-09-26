@@ -1,0 +1,169 @@
+{
+  "app": {
+    "name": "İlaç Takip",
+    "tagline": "Günlük İlaç Yönetimi",
+    "adherence": "%{{rate}} uyum"
+  },
+  "nav": {
+    "today": "Bugün",
+    "medications": "İlaçlar",
+    "health": "Sağlık",
+    "history": "Geçmiş",
+    "stats": "İstatistik",
+    "notes": "Notlar",
+    "appointments": "Randevu"
+  },
+  "dashboard": {
+    "title": "Bugünkü İlaçlar",
+    "noMeds": "Henüz ilaç eklenmedi",
+    "allDone": "Tüm ilaçlar alındı! 🎉",
+    "upcoming": "Yaklaşan",
+    "taken": "Alındı",
+    "skipped": "Atlandı",
+    "missed": "Kaçırıldı"
+  },
+  "medications": {
+    "title": "İlaçlarım",
+    "add": "İlaç Ekle",
+    "edit": "İlacı Düzenle",
+    "delete": "Sil",
+    "name": "İlaç Adı",
+    "dosage": "Doz",
+    "times": "Saatler",
+    "addTime": "Saat Ekle",
+    "color": "Renk",
+    "notes": "Notlar",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "confirmDelete": "Bu ilacı silmek istediğinize emin misiniz?",
+    "active": "Aktif",
+    "inactive": "Pasif"
+  },
+  "stock": {
+    "enable": "Stok takibi",
+    "count": "Kalan adet",
+    "threshold": "Uyarı eşiği",
+    "remaining": "{{count}} adet kaldı",
+    "refill": "Stok ekle",
+    "lowStockTitle": "Stok azalıyor"
+  },
+  "history": {
+    "title": "Geçmiş",
+    "noLogs": "Bu tarih için kayıt yok",
+    "date": "Tarih"
+  },
+  "stats": {
+    "title": "İstatistikler",
+    "adherenceRate": "Uyum Oranı",
+    "totalTaken": "Toplam Alınan",
+    "totalSkipped": "Toplam Atlanan",
+    "streak": "Günlük Seri",
+    "days": "gün",
+    "weekly": "Haftalık",
+    "monthly": "Aylık",
+    "byMedication": "İlaca Göre"
+  },
+  "vitals": {
+    "bloodPressure": {
+      "title": "Tansiyon Takibi",
+      "add": "Ölçüm Ekle",
+      "categoriesTitle": "Tansiyon Kategorileri",
+      "categories": {
+        "normal": "Normal",
+        "elevated": "Yüksek Normal",
+        "stage1": "Evre 1 Yüksek",
+        "stage2": "Evre 2 Yüksek",
+        "crisis": "Hipertansiyon Krizi"
+      },
+      "systolic": "Büyük Tansiyon (Sistolik)",
+      "diastolic": "Küçük Tansiyon (Diyastolik)",
+      "pulse": "Nabız",
+      "history": "Ölçüm Geçmişi",
+      "noReadings": "Henüz ölçüm kaydedilmedi. İlk ölçümünüzü ekleyin.",
+      "confirmDelete": "Bu ölçümü silmek istediğinize emin misiniz?"
+    },
+    "glucose": {
+      "title": "Şeker Takibi",
+      "add": "Ölçüm Ekle",
+      "categoriesTitle": "Kan Şekeri Kategorileri",
+      "categories": {
+        "low": "Düşük",
+        "normal": "Normal",
+        "prediabetes": "Prediyabet",
+        "diabetes": "Diyabet"
+      },
+      "value": "Kan Şekeri (mg/dL)",
+      "context": "Ölçüm Zamanı",
+      "contexts": {
+        "fasting": "Açlık",
+        "postprandial": "Tokluk",
+        "random": "Rastgele"
+      },
+      "history": "Ölçüm Geçmişi",
+      "noReadings": "Henüz ölçüm kaydedilmedi. İlk ölçümünüzü ekleyin.",
+      "confirmDelete": "Bu ölçümü silmek istediğinize emin misiniz?"
+    }
+  },
+  "notes": {
+    "title": "Sağlık Notları",
+    "add": "Not Ekle",
+    "placeholder": "Bugünkü notunuzu yazın...",
+    "noNotes": "Henüz not yok",
+    "delete": "Notu Sil"
+  },
+  "profile": {
+    "title": "Profiller",
+    "add": "Profil Ekle",
+    "switch": "Profil Değiştir",
+    "name": "Profil Adı",
+    "select": "Seç"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "language": "Dil",
+    "theme": "Tema",
+    "themeLight": "Açık",
+    "themeDark": "Koyu",
+    "themeSystem": "Sistem",
+    "notifications": "Bildirimler",
+    "notificationsDesc": "İlaç saatlerinde hatırlatma",
+    "about": "Hakkında",
+    "notificationsWebOnly": "Alarmlar yalnızca Android/iOS uygulamasında çalışır. Tarayıcıda test ederken bildirim gelmez.",
+    "notificationsGranted": "Bildirim izni verildi, alarmlar aktif.",
+    "notificationsEnable": "Bildirimleri Etkinleştir"
+  },
+  "actions": {
+    "take": "Al",
+    "skip": "Atla",
+    "undo": "Geri Al"
+  },
+  "time": {
+    "today": "Bugün",
+    "yesterday": "Dün",
+    "daysAgo": "{{count}} gün önce"
+  },
+  "common": {
+    "yes": "Evet",
+    "no": "Hayır",
+    "ok": "Tamam",
+    "close": "Kapat",
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "note": "Not (opsiyonel)"
+  },
+  "appointments": {
+    "pageTitle": "Randevular",
+    "add": "Randevu Ekle",
+    "title": "Branş / Başlık",
+    "doctor": "Doktor",
+    "location": "Kurum",
+    "date": "Tarih",
+    "time": "Saat",
+    "upcoming": "Yaklaşan Randevular ({{count}})",
+    "past": "Geçmiş Randevular ({{count}})",
+    "noUpcoming": "Yaklaşan randevu yok",
+    "daysLeft": "{{count}} gün",
+    "confirmDelete": "Bu randevuyu silmek istediğinize emin misiniz?"
+  }
+}

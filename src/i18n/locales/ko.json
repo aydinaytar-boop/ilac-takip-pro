@@ -1,0 +1,14 @@
+{
+  "app": { "name": "복약 관리", "tagline": "매일 복약 관리", "adherence": "복약률 {{rate}}%" },
+  "nav": { "today": "오늘", "medications": "약물", "history": "기록", "stats": "통계", "notes": "메모" },
+  "dashboard": { "title": "오늘의 약물", "noMeds": "아직 약물이 추가되지 않았습니다", "allDone": "모든 약물을 복용했습니다! 🎉", "upcoming": "예정", "taken": "복용함", "skipped": "건너뜀", "missed": "놓침" },
+  "medications": { "title": "내 약물 목록", "add": "약물 추가", "edit": "약물 편집", "delete": "삭제", "name": "약물 이름", "dosage": "용량", "times": "시간", "addTime": "시간 추가", "color": "색상", "notes": "메모", "save": "저장", "cancel": "취소", "confirmDelete": "이 약물을 삭제하시겠습니까?", "active": "활성", "inactive": "비활성" },
+  "history": { "title": "기록", "noLogs": "이 날짜에 대한 기록이 없습니다", "date": "날짜" },
+  "stats": { "title": "통계", "adherenceRate": "복약률", "totalTaken": "총 복용 횟수", "totalSkipped": "총 건너뜀 횟수", "streak": "연속 일수", "days": "일", "weekly": "주간", "monthly": "월간", "byMedication": "약물별" },
+  "notes": { "title": "건강 메모", "add": "메모 추가", "placeholder": "오늘의 메모를 작성하세요...", "noNotes": "메모가 없습니다", "delete": "삭제" },
+  "profile": { "title": "프로필", "add": "프로필 추가", "switch": "프로필 전환", "name": "프로필 이름", "select": "선택" },
+  "settings": { "title": "설정", "language": "언어", "theme": "테마", "themeLight": "라이트", "themeDark": "다크", "themeSystem": "시스템", "notifications": "알림", "notificationsDesc": "복약 시간 알림", "about": "정보" },
+  "actions": { "take": "복용", "skip": "건너뜀", "undo": "실행 취소" },
+  "time": { "today": "오늘", "yesterday": "어제", "daysAgo": "{{count}}일 전" },
+  "common": { "yes": "예", "no": "아니오", "ok": "확인", "close": "닫기", "loading": "로딩 중...", "error": "오류", "success": "성공" }
+}
