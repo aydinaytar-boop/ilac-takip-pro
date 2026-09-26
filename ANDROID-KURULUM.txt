@@ -1,0 +1,67 @@
+ANDROID UYGULAMASI OLARAK PAKETLEME (Capacitor)
+==================================================
+
+Gereken programlar (bilgisayarına kurulu değilse):
+  - Android Studio: https://developer.android.com/studio
+  - Java (Android Studio ile birlikte gelir, ayrıca kurmana gerek yok)
+
+Bu zip'teki dosyaları proje köküne ayıkladıktan sonra, proje klasöründe
+terminal aç ve sırayla şunları çalıştır:
+
+1) Yeni bağımlılıkları yükle
+   npm install
+
+2) Web derlemesini oluştur ve Capacitor'a Android projesi ekle
+   npx cap add android
+   npx cap sync
+
+   Bu iki komut, proje köküne yeni bir "android" klasörü oluşturur.
+   Bu klasör Android Studio projesidir, elle dokunmana gerek yok.
+
+3) Android Studio'da aç
+   npx cap open android
+   (ya da Android Studio'yu açıp "android" klasörünü elle aç)
+
+4) Telefonunu USB ile bağla (Geliştirici Seçenekleri > USB hata ayıklama
+   açık olmalı) ya da Android Studio'nun emülatörünü kullan, sonra
+   Android Studio'da üstteki yeşil ▶ (Run) düğmesine bas.
+
+5) İlk kurulumdan sonra, kod her değiştiğinde:
+   npm run cap:sync
+   sonra Android Studio'da tekrar ▶ ile telefona/emülatöre yükle.
+
+6) Play Store için imzalı .aab dosyası almak istediğinde:
+   Android Studio'da: Build > Generate Signed Bundle / APK
+   (Bunun için bir imzalama anahtarı (keystore) oluşturman istenecek,
+   bunu güvenli bir yerde sakla — kaybedersen aynı uygulamayı
+   güncelleyemezsin.)
+
+ÖNEMLİ İZİN NOTLARI
+--------------------
+- Android 13 ve üzeri, bildirim izni için kullanıcıya ayrıca sormayı
+  gerektirir. Uygulama bunu Ayarlar > Bildirimler bölümündeki
+  "Bildirimleri Etkinleştir" düğmesiyle zaten istiyor, ekstra bir şey
+  yapmana gerek yok.
+- Tam zamanında (dakikası dakikasına) alarm için Android 12+ bazı
+  cihazlarda "Alarmlar ve hatırlatıcılar" iznini ayarlardan ayrıca
+  açmanı isteyebilir. Bu, telefon modeline göre değişir; ilk testte
+  alarmlar birkaç dakika gecikirse bu ayarı telefonun Ayarlar >
+  Uygulamalar > İlaç Takip Pro > Alarmlar ve hatırlatıcılar
+  bölümünden kontrol et.
+- Pil optimizasyonu bazı telefonlarda (özellikle Xiaomi, Huawei,
+  Oppo gibi markalarda) arka plan bildirimlerini geciktirebilir.
+  Uygulamayı "pil optimizasyonundan muaf" listesine eklemek genelde
+  bu sorunu çözer.
+
+
+WEB SÜRÜMÜ ETKİLENMEZ
+
+-----------------------
+"npm run dev" ile tarayıcıda çalıştırdığında hiçbir şey değişmez;
+AlarmService web'de hiçbir işlem yapmadan sessizce atlanır. Bu yüzden
+mevcut geliştirme akışını bozmadan Android/iOS paketlemesi bu şekilde
+üstüne eklenmiş oluyor.
+
+iOS (iPhone) için not: iOS uygulaması derlemek Mac bilgisayar ve Xcode
+gerektirir; Windows'tan doğrudan yapılamaz. İstersen ileride bir Mac'e
+eriştiğinde aynı proje üzerinden "npx cap add ios" ile eklenebilir.
