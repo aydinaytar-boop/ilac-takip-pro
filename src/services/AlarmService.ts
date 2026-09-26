@@ -13,6 +13,30 @@ import type { Medication } from '../types';
 
 const isNative = () => Capacitor.isNativePlatform();
 
+// Adlandırılmış bildirim kanalı: kullanıcı telefon Ayarları > Uygulamalar >
+// İlaç Takip Pro > Bildirimler > "İlaç Hatırlatmaları" yoluyla bu kanalın
+// SESİNİ kendi telefonundaki zil seslerinden seçebilir — kod değişikliği
+// ya da yeni APK gerekmez.
+const CHANNEL_ID = 'medication-reminders';
+
+let channelReady: Promise<void> | null = null;
+
+async function ensureChannel(): Promise<void> {
+  if (!isNative()) return;
+  if (!channelReady) {
+    channelReady = LocalNotifications.createChannel({
+      id: CHANNEL_ID,
+      name: 'İlaç Hatırlatmaları',
+      description: 'İlaç alma zamanı geldiğinde gelen hatırlatmalar',
+      importance: 5, // IMPORTANCE_HIGH: ekranın üstünde açılır, ses çalar
+      visibility: 1, // ekranın kilitli halinde de içerik görünsün
+      sound: 'default',
+      vibration: true,
+    }).catch((e) => console.warn('AlarmService.ensureChannel failed', e));
+  }
+  await channelReady;
+}
+
 // Bildirim id'si Capacitor'da 32-bit tamsayı olmalı. İlaç id'si (string)
 // ve saatten deterministik bir sayı üretiyoruz; aynı ilaç+saat için hep
 // aynı id çıkar, böylece iptal ederken tekrar bulunabilir.
@@ -30,6 +54,7 @@ export class AlarmService {
   static async requestPermissions(): Promise<boolean> {
     if (!isNative()) return false;
     try {
+      await ensureChannel();
       const current = await LocalNotifications.checkPermissions();
       if (current.display === 'granted') return true;
       const requested = await LocalNotifications.requestPermissions();
@@ -86,14 +111,15 @@ export class AlarmService {
           const [hour, minute] = time.split(':').map(Number);
           return {
             id: notificationId(med.id, time),
+            channelId: CHANNEL_ID,
             title: '💊 İlaç Zamanı',
             body: med.dosage ? `${med.name} — ${med.dosage}` : med.name,
+            sound: 'default',
             schedule: {
               on: { hour, minute },
               repeats: true,
               allowWhileIdle: true,
             },
-            sound: 'default',
             extra: { medicationId: med.id, scheduledTime: time },
           };
         }),
@@ -106,6 +132,7 @@ export class AlarmService {
   /** Uygulama açılışında ya da profil değişince tüm aktif ilaçları yeniden planlar. */
   static async rescheduleAll(medications: Medication[]): Promise<void> {
     if (!isNative()) return;
+    await ensureChannel();
     for (const med of medications) {
       if (med.active) await this.scheduleForMedication(med);
       else await this.cancelForMedication(med.id);
