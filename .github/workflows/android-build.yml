@@ -1,1 +1,67 @@
+name: Android APK Derle ve Yayınla
 
+# Ne zaman çalışır:
+# - main dalına her push'ta otomatik
+# - GitHub'ın Actions sekmesinden "Run workflow" ile elle de tetiklenebilir
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodu al
+        uses: actions/checkout@v4
+
+      - name: Node.js kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Java kur (Android derlemesi için gerekli)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Bağımlılıkları yükle
+        run: npm install
+
+      - name: Web derlemesini oluştur
+        run: npm run build
+
+      - name: Android projesi yoksa oluştur
+        run: |
+          if [ ! -d "android" ]; then
+            npx cap add android
+          fi
+
+      - name: Capacitor'ı senkronize et
+        run: npx cap sync android
+
+      - name: Android APK derle (debug — imza gerektirmez)
+        working-directory: android
+        run: |
+          chmod +x ./gradlew
+          ./gradlew assembleDebug
+
+      - name: APK'yı bul ve isimlendir
+        run: |
+          mkdir -p dist-apk
+          cp android/app/build/outputs/apk/debug/app-debug.apk \
+             "dist-apk/ilac-takip-pro-${{ github.run_number }}.apk"
+
+      - name: Sürüm (Release) oluştur ve APK'yı ekle
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: "İlaç Takip Pro — Derleme #${{ github.run_number }}"
+          body: |
+            Bu derlemeyi telefonundan indirip kurabilirsin.
+            Aşağıdaki .apk dosyasına dokun, indirsin, sonra açıp "Kur"a bas.
+            (İlk kurulumda "Bilinmeyen kaynaklardan yükleme" iznini açman istenebilir.)
+          files: dist-apk/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
