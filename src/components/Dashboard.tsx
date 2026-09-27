@@ -72,7 +72,7 @@ export default function Dashboard({
         <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 text-center shadow-sm">
           <IconTile
             icon={Pill}
-            gradient="from-blue-500 via-indigo-500 to-violet-600"
+            gradient="from-fuchsia-500 via-violet-500 to-indigo-600"
             size={56}
             className="mx-auto mb-3"
           />
@@ -80,7 +80,7 @@ export default function Dashboard({
         </div>
       ) : (
         <>
-          <div className="relative overflow-hidden bg-gradient-to-br from-blue-500 via-indigo-500 to-violet-600 rounded-2xl p-4 mb-4 shadow-xl shadow-indigo-500/25">
+          <div className="relative overflow-hidden bg-gradient-to-br from-fuchsia-500 via-violet-500 to-indigo-600 rounded-2xl p-4 mb-4 shadow-xl shadow-indigo-500/25">
             <div className="pointer-events-none absolute -top-8 -right-8 w-28 h-28 rounded-full bg-white/10" />
             <div className="pointer-events-none absolute -bottom-10 -left-6 w-24 h-24 rounded-full bg-white/10" />
             <div className="relative flex items-baseline justify-between mb-2">
