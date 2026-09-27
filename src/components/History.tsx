@@ -133,7 +133,7 @@ export default function History({
                   aria-hidden="true"
                 />
                 <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-sm text-gray-800 dark:text-gray-100 truncate">
+                  <p className="font-semibold text-sm text-gray-800 dark:text-gray-100 break-words">
                     {medication.name}
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">
