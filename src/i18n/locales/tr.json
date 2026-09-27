@@ -116,7 +116,12 @@
     "add": "Profil Ekle",
     "switch": "Profil Değiştir",
     "name": "Profil Adı",
-    "select": "Seç"
+    "select": "Seç",
+    "dob": "Doğum Tarihi",
+    "doctorName": "Aile Doktoru",
+    "doctorPhone": "Doktor Telefonu",
+    "height": "Boy (cm)",
+    "weight": "Kilo (kg)"
   },
   "settings": {
     "title": "Ayarlar",
