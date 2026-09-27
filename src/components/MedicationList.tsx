@@ -389,7 +389,7 @@ export default function MedicationList({
                   <Pill size={20} strokeWidth={2.25} className="relative text-white" />
                 </span>
                 <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-sm text-gray-800 dark:text-gray-100 truncate">
+                  <p className="font-semibold text-sm text-gray-800 dark:text-gray-100 break-words">
                     {med.name}
                   </p>
                   {med.dosage && (
