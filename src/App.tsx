@@ -63,12 +63,16 @@ export default function App() {
   const rate = store.adherenceRate(activeProfileId);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-indigo-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950 transition-colors">
+    <div className="relative min-h-screen bg-gradient-to-br from-fuchsia-50 via-sky-50 to-emerald-50 dark:from-gray-950 dark:via-indigo-950 dark:to-gray-950 transition-colors overflow-x-hidden">
+      {/* Canlı, yumuşak renk lekeleri — sabit, kartların arkasında, okumayı etkilemeden atmosfer katıyor */}
+      <div className="pointer-events-none fixed -top-24 -left-16 w-72 h-72 rounded-full bg-fuchsia-300/30 dark:bg-fuchsia-600/10 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none fixed top-1/3 -right-20 w-80 h-80 rounded-full bg-amber-300/25 dark:bg-amber-500/10 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none fixed bottom-24 -left-10 w-64 h-64 rounded-full bg-emerald-300/25 dark:bg-emerald-500/10 blur-3xl" aria-hidden="true" />
       {/* Top Bar */}
       <header className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-700 sticky top-0 z-40 shadow-sm">
         <div className="max-w-lg mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <IconTile icon={Pill} gradient="from-blue-500 via-indigo-500 to-violet-600" size={34} />
+            <IconTile icon={Pill} gradient="from-fuchsia-500 via-violet-500 to-indigo-600" size={34} />
             <div>
               <h1 className="font-bold text-gray-800 dark:text-gray-100 text-sm leading-none">
                 {t('app.name')}
@@ -194,4 +198,3 @@ export default function App() {
     </div>
   );
 }
-
