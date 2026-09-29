@@ -16,6 +16,7 @@
 import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import type { Medication } from '../types';
+import type { Appointment } from '../types/appointment';
 
 const isNative = () => Capacitor.isNativePlatform();
 
@@ -45,16 +46,23 @@ async function ensureChannel(): Promise<void> {
   await channelReady;
 }
 
-// Bildirim id'si Capacitor'da 32-bit tamsayı olmalı. İlaç id'si, saat ve
-// "dürtme" sırasından deterministik bir sayı üretiyoruz; aynı kombinasyon
-// için hep aynı id çıkar, böylece iptal ederken tekrar bulunabilir.
-function notificationId(medicationId: string, time: string, offsetIdx: number): number {
-  const str = `${medicationId}_${time}_${offsetIdx}`;
+// Bildirim id'si Capacitor'da 32-bit tamsayı olmalı. Herhangi bir string'den
+// deterministik bir sayı üretir; aynı girdi için hep aynı id çıkar, böylece
+// iptal ederken tekrar bulunabilir.
+function hashId(str: string): number {
   let h = 0;
   for (let i = 0; i < str.length; i++) {
     h = (h * 31 + str.charCodeAt(i)) | 0;
   }
   return (Math.abs(h) % 2147483647) || 1;
+}
+
+function notificationId(medicationId: string, time: string, offsetIdx: number): number {
+  return hashId(`${medicationId}_${time}_${offsetIdx}`);
+}
+
+function appointmentNotificationId(appointmentId: string): number {
+  return hashId(`appt_${appointmentId}`);
 }
 
 // "HH:MM" saatine dakika ekler, saat taşmasını (23:59 -> 00:01 gibi) sarar.
@@ -172,5 +180,76 @@ export class AlarmService {
       console.warn('AlarmService.cancelAll failed', e);
     }
   }
-}
 
+  // ============================================================
+  // Randevu hatırlatmaları — randevu saatinden TAM 24 saat önce,
+  // tek seferlik bir bildirim gönderir.
+  // ============================================================
+
+  /** Bir randevunun önceki hatırlatmasını iptal eder. */
+  static async cancelAppointmentReminder(appointmentId: string): Promise<void> {
+    if (!isNative()) return;
+    try {
+      const pending = await LocalNotifications.getPending();
+      const toCancel = pending.notifications.filter(
+        (n) => n.extra?.appointmentId === appointmentId
+      );
+      if (toCancel.length > 0) {
+        await LocalNotifications.cancel({
+          notifications: toCancel.map((n) => ({ id: n.id })),
+        });
+      }
+    } catch (e) {
+      console.warn('AlarmService.cancelAppointmentReminder failed', e);
+    }
+  }
+
+  /**
+   * Randevu saatinden 24 saat önce tek seferlik bir bildirim kurar.
+   * Randevunun saati belirtilmemişse 09:00 varsayılır. Hatırlatma zamanı
+   * zaten geçmişse (randevu 24 saatten az kalmışsa ya da geçmişse) hiçbir
+   * şey kurulmaz.
+   */
+  static async scheduleAppointmentReminder(appt: Appointment): Promise<void> {
+    if (!isNative()) return;
+    await this.cancelAppointmentReminder(appt.id);
+
+    const granted = await this.requestPermissions();
+    if (!granted) return;
+
+    const time = appt.time || '09:00';
+    const [hour, minute] = time.split(':').map(Number);
+    const apptDate = new Date(`${appt.date}T00:00:00`);
+    apptDate.setHours(hour, minute, 0, 0);
+    const reminderAt = new Date(apptDate.getTime() - 24 * 60 * 60 * 1000);
+
+    if (reminderAt.getTime() <= Date.now()) return; // 24 saatten az kaldıysa kurma
+
+    try {
+      await LocalNotifications.schedule({
+        notifications: [
+          {
+            id: appointmentNotificationId(appt.id),
+            channelId: CHANNEL_ID,
+            title: '📅 Yaklaşan Randevu',
+            body: `${appt.title}${appt.doctorName ? ' — ' + appt.doctorName : ''} · yarın ${time}`,
+            sound: 'default',
+            schedule: { at: reminderAt, allowWhileIdle: true },
+            extra: { appointmentId: appt.id },
+          },
+        ],
+      });
+    } catch (e) {
+      console.warn('AlarmService.scheduleAppointmentReminder failed', e);
+    }
+  }
+
+  /** Uygulama açılışında ya da profil değişince tüm randevu hatırlatmalarını yeniden kurar. */
+  static async rescheduleAllAppointments(appointments: Appointment[]): Promise<void> {
+    if (!isNative()) return;
+    await ensureChannel();
+    for (const appt of appointments) {
+      await this.scheduleAppointmentReminder(appt);
+    }
+  }
+}
