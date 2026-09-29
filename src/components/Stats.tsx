@@ -69,7 +69,7 @@ export default function Stats({ doseLogs, medications }: StatsProps) {
     })
     .filter((m) => m.resolved > 0);
 
-  const card = 'bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm';
+  const card = 'bg-gradient-to-br from-white to-violet-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl p-4 shadow-sm';
 
   return (
     <div>
