@@ -60,7 +60,7 @@ export default function Notes({ notes, onAdd, onDelete }: NotesProps) {
       </div>
 
       {sorted.length === 0 ? (
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 text-center shadow-sm">
+        <div className="bg-gradient-to-br from-white to-fuchsia-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl p-8 text-center shadow-sm">
           <IconTile
             icon={NotebookPen}
             gradient="from-fuchsia-500 to-pink-600"
