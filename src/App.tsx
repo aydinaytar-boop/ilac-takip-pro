@@ -57,6 +57,7 @@ export default function App() {
   useEffect(() => {
     const meds = store.getMedicationsForProfile(activeProfileId);
     void AlarmService.rescheduleAll(meds);
+    void AlarmService.rescheduleAllAppointments(appts.appointmentsForProfile(activeProfileId));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeProfileId]);
 
