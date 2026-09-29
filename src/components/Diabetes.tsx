@@ -144,7 +144,7 @@ export default function Diabetes({ readings, onAdd, onDelete }: DiabetesProps) {
         </div>
       )}
 
-      <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 mb-4 shadow-sm">
+      <div className="bg-gradient-to-br from-white to-indigo-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl p-4 mb-4 shadow-sm">
         <h2 className="font-semibold text-sm text-gray-800 dark:text-gray-100 mb-2">
           {t('vitals.glucose.categoriesTitle')}
         </h2>
