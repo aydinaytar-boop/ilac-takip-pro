@@ -61,7 +61,7 @@ function AppointmentForm({
       <div className="flex items-center gap-2.5">
         <IconTile icon={CalendarDays} gradient="from-amber-500 to-orange-600" size={30} />
         <h2 className="font-semibold text-sm text-gray-800 dark:text-gray-100">
-          {initial ? t('medications.edit') : t('appointments.add')}
+          {initial ? t('common.edit') : t('appointments.add')}
         </h2>
       </div>
       <div>
@@ -239,7 +239,7 @@ export default function Appointments({
               className="flex-1 flex items-center justify-center gap-1 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-xs font-medium"
             >
               <Pencil size={13} />
-              {t('medications.edit')}
+              {t('common.edit')}
             </button>
             <button
               onClick={() => setConfirmId(a.id)}
@@ -314,7 +314,7 @@ export default function Appointments({
         {t('appointments.upcoming', { count: upcoming.length })}
       </h2>
       {upcoming.length === 0 ? (
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 text-center shadow-sm mb-4">
+        <div className="bg-gradient-to-br from-white to-amber-50 dark:from-gray-800 dark:to-gray-800 rounded-2xl p-6 text-center shadow-sm mb-4">
           <IconTile
             icon={CalendarDays}
             gradient="from-amber-500 to-orange-600"
