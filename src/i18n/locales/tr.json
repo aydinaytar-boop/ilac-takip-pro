@@ -155,7 +155,8 @@
     "loading": "Yükleniyor...",
     "error": "Hata",
     "success": "Başarılı",
-    "note": "Not (opsiyonel)"
+    "note": "Not (opsiyonel)",
+    "edit": "Düzenle"
   },
   "appointments": {
     "pageTitle": "Randevular",
