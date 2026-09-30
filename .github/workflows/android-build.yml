@@ -41,6 +41,20 @@ jobs:
       - name: Capacitor'ı senkronize et
         run: npx cap sync android
 
+      - name: Uygulama simgesini oluştur (resources/icon.png'den)
+        run: |
+          if [ -f "resources/icon.png" ]; then
+            npx @capacitor/assets generate --android
+          else
+            echo "resources/icon.png bulunamadı, simge oluşturma atlandı"
+          fi
+
+      - name: Sürüm numarasını ayarla (2.1.0)
+        working-directory: android
+        run: |
+          sed -i "s/versionName \"1.0\"/versionName \"2.1.0\"/" app/build.gradle
+          sed -i "s/versionCode 1/versionCode ${{ github.run_number }}/" app/build.gradle
+
       - name: Android APK derle (debug — imza gerektirmez)
         working-directory: android
         run: |
@@ -65,4 +79,3 @@ jobs:
           files: dist-apk/*.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
