@@ -37,7 +37,14 @@
     "cancel": "İptal",
     "confirmDelete": "Bu ilacı silmek istediğinize emin misiniz?",
     "active": "Aktif",
-    "inactive": "Pasif"
+    "inactive": "Pasif",
+    "foodRelation": "Yemek İlişkisi",
+    "food": {
+      "before": "Öncesi",
+      "after": "Sonrası",
+      "with": "Yemekle",
+      "any": "Farketmez"
+    }
   },
   "stock": {
     "enable": "Stok takibi",
