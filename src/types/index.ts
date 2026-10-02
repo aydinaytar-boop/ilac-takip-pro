@@ -10,6 +10,8 @@ export type AppView =
 
 export type DoseStatus = 'taken' | 'skipped' | 'missed' | 'upcoming';
 
+export type FoodRelation = 'before' | 'after' | 'with' | 'any';
+
 export interface Medication {
   id: string;
   profileId: string;
@@ -20,6 +22,9 @@ export interface Medication {
   notes?: string;
   active: boolean;
   createdAt: string;
+
+  // --- Yemek ilişkisi (opsiyonel) ---
+  foodRelation?: FoodRelation;
 
   // --- Stok takibi (opsiyonel) ---
   stockTracking?: boolean;   // stok takibi açık mı
