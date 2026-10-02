@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Plus, Pencil, Trash2, X, PackagePlus, Pill } from 'lucide-react';
 import { MED_COLORS, DEFAULT_STOCK_THRESHOLD } from '../types';
-import type { Medication } from '../types';
+import type { Medication, FoodRelation } from '../types';
+
+const FOOD_RELATIONS: FoodRelation[] = ['before', 'after', 'with', 'any'];
 import IconTile from './IconTile';
 
 type MedInput = Omit<Medication, 'id' | 'createdAt'>;
@@ -46,6 +48,7 @@ function MedForm({
   const [color, setColor] = useState(initial?.color ?? MED_COLORS[0]);
   const [notes, setNotes] = useState(initial?.notes ?? '');
   const [active, setActive] = useState(initial?.active ?? true);
+  const [foodRelation, setFoodRelation] = useState<FoodRelation>(initial?.foodRelation ?? 'any');
   const [stockTracking, setStockTracking] = useState(initial?.stockTracking ?? false);
   const [stockCount, setStockCount] = useState(initial?.stockCount ?? 0);
   const [stockThreshold, setStockThreshold] = useState(
@@ -65,6 +68,7 @@ function MedForm({
       dosage: dosage.trim(),
       times: cleanTimes,
       color,
+      foodRelation,
       notes: notes.trim() || undefined,
       active,
       stockTracking,
@@ -105,6 +109,27 @@ function MedForm({
           onChange={(e) => setDosage(e.target.value)}
           className={INPUT_CLASS}
         />
+      </div>
+
+      <div>
+        <span className={label}>{t('medications.foodRelation')}</span>
+        <div className="grid grid-cols-2 gap-2">
+          {FOOD_RELATIONS.map((rel) => (
+            <button
+              key={rel}
+              type="button"
+              onClick={() => setFoodRelation(rel)}
+              aria-pressed={foodRelation === rel}
+              className={`py-2 rounded-xl text-sm font-medium transition-all ${
+                foodRelation === rel
+                  ? 'bg-emerald-500 text-white'
+                  : 'bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-300'
+              }`}
+            >
+              {t(`medications.food.${rel}`)}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div>
@@ -404,6 +429,11 @@ export default function MedicationList({
                         {time}
                       </span>
                     ))}
+                    {med.foodRelation && med.foodRelation !== 'any' && (
+                      <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300">
+                        {t(`medications.food.${med.foodRelation}`)}
+                      </span>
+                    )}
                     {!med.active && (
                       <span className="text-[11px] px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400">
                         {t('medications.inactive')}
