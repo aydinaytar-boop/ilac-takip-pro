@@ -23,7 +23,10 @@ const isNative = () => Capacitor.isNativePlatform();
 // Adlandırılmış bildirim kanalı: kullanıcı telefon Ayarları > Uygulamalar >
 // İlaç Takip Pro > Bildirimler > "İlaç Hatırlatmaları" yoluyla bu kanalın
 // SESİNİ kendi telefonundaki zil seslerinden seçebilir.
-const CHANNEL_ID = 'medication-reminders';
+// v2: özel alarm sesi için yeni kanal kimliği. Android 8+'te bir kanalın
+// sesi, kanal bir kez oluşturulduktan sonra koddan değiştirilemiyor; bu
+// yüzden yeni sesle birlikte kanal id'sini de değiştirdik.
+const CHANNEL_ID = 'medication-reminders-v2';
 
 // Ana saatten sonra kaç dakika arayla ek "dürtme" bildirimi gönderilsin.
 const NAG_OFFSETS_MIN = [0, 1, 2];
@@ -39,7 +42,7 @@ async function ensureChannel(): Promise<void> {
       description: 'İlaç alma zamanı geldiğinde gelen hatırlatmalar',
       importance: 5, // IMPORTANCE_HIGH: ekranın üstünde açılır, ses çalar
       visibility: 1, // ekranın kilitli halinde de içerik görünsün
-      sound: 'default',
+      sound: 'alarm_sound.wav',
       vibration: true,
     }).catch((e) => console.warn('AlarmService.ensureChannel failed', e));
   }
@@ -139,7 +142,7 @@ export class AlarmService {
           channelId: CHANNEL_ID,
           title: isFirst ? '💊 İlaç Zamanı' : '💊 İlaç Zamanı — Hatırlatma',
           body: med.dosage ? `${med.name} — ${med.dosage}` : med.name,
-          sound: 'default',
+          sound: 'alarm_sound.wav',
           schedule: {
             on: { hour, minute },
             repeats: true,
@@ -233,7 +236,7 @@ export class AlarmService {
             channelId: CHANNEL_ID,
             title: '📅 Yaklaşan Randevu',
             body: `${appt.title}${appt.doctorName ? ' — ' + appt.doctorName : ''} · yarın ${time}`,
-            sound: 'default',
+            sound: 'alarm_sound.wav',
             schedule: { at: reminderAt, allowWhileIdle: true },
             extra: { appointmentId: appt.id },
           },
