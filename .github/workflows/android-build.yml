@@ -41,6 +41,15 @@ jobs:
       - name: Capacitor'ı senkronize et
         run: npx cap sync android
 
+      - name: Özel alarm sesini Android projesine kopyala
+        run: |
+          mkdir -p android/app/src/main/res/raw
+          if [ -f "resources/alarm_sound.wav" ]; then
+            cp resources/alarm_sound.wav android/app/src/main/res/raw/alarm_sound.wav
+          else
+            echo "resources/alarm_sound.wav bulunamadı, varsayılan ses kullanılacak"
+          fi
+
       - name: Uygulama simgesini oluştur (resources/icon.png'den)
         run: |
           if [ -f "resources/icon.png" ]; then
